@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  # Node Container
+  dotnet-ctr:
+    build:
+      context: ./docker/dotnet/
+      dockerfile: Dockerfile
+    container_name: ${DOTNET_CONTAINER_NAME}
+    restart: always
+    volumes:
+      - ./code:/code
+    # environment:
+    working_dir: /code
+    stdin_open: true
+    tty: true
